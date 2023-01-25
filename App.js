@@ -1,7 +1,30 @@
 import { useEffect, useState } from 'react';
 import { Camera, CameraType } from 'expo-camera';
-import { StatusBar } from 'expo-status-bar';
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {  StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import * as FileSystem from 'expo-file-system';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
+
+
+let cameraRef;
+
+async function takePicture(){
+  if(cameraRef){
+    let photo = await cameraRef.takePictureAsync();
+    console.log(photo);
+    await savePicture(photo.uri);
+  }
+}
+
+async function savePicture(uri){
+  const name = new Date().getTime() + '.jpeg';
+  const newUri = FileSystem.documentDirectory + name;
+  await FileSystem.moveAsync({
+    from: uri,
+    to: newUri,
+  });
+}
+
 
 export default function App() {
   const [permission, setPermission] = useState(null);
@@ -38,10 +61,13 @@ export default function App() {
   // export default function App() {
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type}>
+      <Camera ref={ref => (cameraRef = ref)} style={styles.camera} type={type}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.button} onPress={toggleCameraType}>
             <Text>Flip Camera</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.takePicture} onPress={takePicture}>
+            <Text style={styles.text}>Take Picture</Text>
           </TouchableOpacity>
         </View>
       </Camera>
@@ -73,5 +99,11 @@ const styles = StyleSheet.create({
   },
   text:{
     color: 'white',
-  }
+  },
+  takePicture: {
+    padding: 10,
+    backgroundColor: 'green',
+    borderRadius: 5,
+    margin:10
+  },
 });
