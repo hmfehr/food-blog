@@ -12,10 +12,14 @@ desiging a aplication that allows you to take a photo and put it into a section 
 
 - [GitHub Actions](https://github.com/hmfehr/food-blog)
 - run npm start and take scan qr code
+-trace dugar
+-matt miguel
+-chatgpt
 
 #### Features / Routes
 
 - Feature One: allows user to allow access to front and back of their device
+- Feature Two: create button to beable to take a photo and look at examples of being to view and add a description to the photo.
 
 #### UML
 
