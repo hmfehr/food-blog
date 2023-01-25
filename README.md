@@ -1,45 +1,22 @@
-# LAB - Class xx
+# LAB - react native 
 
-## Project: Project Name Here
+## Project: Food-blog
 
-### Author: Student/Group Name
+### Author: hunter fehr
 
 ### Problem Domain  
 
-Concise Description of why this app exists
+desiging a aplication that allows you to take a photo and put it into a section where you can add text and description as a user
 
 ### Links and Resources
 
-- [ci/cd](http://xyz.com) (GitHub Actions)
-- [back-end server url](http://xyz.com) (when applicable)
-- [front-end application](http://xyz.com) (when applicable)
-
-### Setup
-
-#### `.env` requirements (where applicable)
-
-i.e.
-
-- `PORT` - Port Number
-- `DATABASE_URL` - URL to the running Postgres instance/db
-
-#### How to initialize/run your application (where applicable)
-
-- e.g. `npm start`
-
-#### How to use your library (where applicable)
+- [GitHub Actions](https://github.com/hmfehr/food-blog)
+- run npm start and take scan qr code
 
 #### Features / Routes
 
-- Feature One: Details of feature
-- GET : `/hello` - specific route to hit
-
-#### Tests
-
-- How do you run tests?
-- Any tests of note?
-- Describe any tests that you did not complete, skipped, etc
+- Feature One: allows user to allow access to front and back of their device
 
 #### UML
 
-Link to an image of the UML for your application and response to events
+![react uml](assets/overall-react-uml.png)
